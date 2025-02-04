@@ -23,3 +23,21 @@ grade_list([SH|ST],[GH|GT]):-grade(SH,GH,_),grade_list(ST,GT).
 
 grade_value_list([],[]).
 grade_value_list([SH|ST],[GVH|GVT]):-grade(SH,_,GVH),grade_value_list(ST,GVT).
+
+sum_mark([],0).
+sum_mark([H|T],Sum):-
+    sum_mark(T,RestSum),
+    Sum is H+RestSum.
+
+multiply_list([],[],[]).
+multiply_list([H1|T1],[H2|T2],[P|PT]):-
+    P is H1*H2,
+    multiply_list(T1,T2,PT).
+
+gpa(Score,Credits,CGPA):-
+    grade_value_list(Score,GradeValues),
+    multiply_list(GradeValues,Credits,Products),
+    sum_mark(Products,TotalGradePoints),
+    sum_mark(Credits,TotalCredits),
+    TotalCredits>0,
+    CGPA is TotalGradePoints/TotalCredits.
