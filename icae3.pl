@@ -1,15 +1,3 @@
-% Define the available colors
-color(red).
-color(yellow).
-color(green).
-
-% Define the map with neighboring regions
-adjacent(northern, north_central).
-adjacent(northern, eastern).
-adjacent(north_central, eastern).
-Aadjacent(north_central, central).
-adjacent(north_central, north_western).
-adjacent(central, eastern).
 
 
 %2
